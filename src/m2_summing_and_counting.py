@@ -237,6 +237,36 @@ def run_test_count_sines_vs_cosines():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected = 6
+    answer = count_sines_vs_cosines(5)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 4
+    answer = count_sines_vs_cosines(3)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 0
+    answer = count_sines_vs_cosines(0)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 5:
+    expected = 1
+    answer = count_sines_vs_cosines(1)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 6:
+    expected = 2
+    answer = count_sines_vs_cosines(2)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
+
 
 def count_sines_vs_cosines(m):
     """
@@ -263,7 +293,7 @@ def count_sines_vs_cosines(m):
       -- Also:  count_sines_vs_cosines(101) returns 100 (trust me!)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
@@ -271,6 +301,18 @@ def count_sines_vs_cosines(m):
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
 
+    counter = 0
+
+    for k in range(2*m+1):
+
+        sin = math.sin(k-m)
+        cos = math.cos(k-m)
+
+        if sin > cos:
+
+            counter = counter + 1
+
+    return counter
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
