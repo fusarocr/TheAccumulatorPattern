@@ -156,10 +156,14 @@ def run_test_draw_circles_from_rectangle():
 
     # Test 1:
     rectangle = rg.Rectangle(rg.Point(500,270),rg.Point(400,320))
+    rectangle.fill_color = 'green'
+    rectangle.outline_color = 'red'
     draw_circles_from_rectangle(4,2,rectangle,window1)
 
     # Test 2:
     rectangle = rg.Rectangle(rg.Point(330, 200), rg.Point(300, 250))
+    rectangle.fill_color = 'orange'
+    rectangle.outline_color = 'blue'
     draw_circles_from_rectangle(5,6,rectangle,window1)
     window1.close_on_mouse_click()
 
@@ -225,6 +229,8 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    outline_color = rectangle.outline_color
+    fill_color = rectangle.fill_color
 
 
     radius1 = (rectangle.corner_2.y - rectangle.corner_1.y)/2
@@ -240,15 +246,13 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     #Horizontal circles
     for k in range(m):
 
-        rectangle_fill = 'green'
-        rectangle_outline = 'red'
-        circle1_fill = rectangle_fill
-
         center1 = rg.Point(x1, y1)
 
         circle1 = rg.Circle(center1,radius1)
 
-        circle1.fill_color = rectangle_fill
+        circle1.outline_color = None
+
+        circle1.fill_color = fill_color
 
         x1 = x1 - 2*radius1
 
@@ -256,15 +260,13 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
 
     for k in range(n):
 
-        rectangle.fill = 'orange'
-        rectangle_outline = 'purple'
-        circle2_outline = rectangle_outline
-        circle2_fill = 'none'
-
-
         center2 = rg.Point(x2, y2)
 
         circle2 = rg.Circle(center2,radius2)
+
+        circle2.outline_color = outline_color
+
+        circle2.fill_color = None
 
         y2 = y2 + 2*radius2
 
