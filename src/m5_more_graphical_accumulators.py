@@ -394,7 +394,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
         if k % 2 == 1:
 
             line = rg.Line(startpoint, endpoint)
-            line_color1 = rectangle2.outline_color
+            line.color = rectangle2.outline_color
             line.thickness = 5
             line.attach_to(window)
 
@@ -407,7 +407,8 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
         if k % 2 == 0:
 
             line = rg.Line(startpoint, endpoint)
-            line_color2 = rectangle1.outline_color
+            line.color = rectangle1.outline_color
+
             line.thickness = 5
             line.attach_to(window)
 
