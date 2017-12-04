@@ -156,14 +156,10 @@ def run_test_draw_circles_from_rectangle():
 
     # Test 1:
     rectangle = rg.Rectangle(rg.Point(500,270),rg.Point(400,320))
-    rectangle.fill_color = 'red'
-    rectangle.outline_color = 'green'
     draw_circles_from_rectangle(4,2,rectangle,window1)
 
     # Test 2:
     rectangle = rg.Rectangle(rg.Point(330, 200), rg.Point(300, 250))
-    rectangle.fill_color = 'orange'
-    rectangle.outline_color = 'purple'
     draw_circles_from_rectangle(5,6,rectangle,window1)
     window1.close_on_mouse_click()
 
@@ -356,7 +352,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
