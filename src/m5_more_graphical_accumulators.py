@@ -28,8 +28,8 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     #run_test_draw_squares_from_circle()
-    run_test_draw_circles_from_rectangle()
-    #run_test_draw_lines_from_rectangles()
+    #run_test_draw_circles_from_rectangle()
+    run_test_draw_lines_from_rectangles()
 
 
 def run_test_draw_squares_from_circle():
@@ -378,6 +378,51 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+
+    center1 = rectangle1.get_center()
+    center2 = rectangle2.get_center()
+
+    startpoint = rg.Point(center1.x, center1.y)
+    endpoint = rg.Point(center2.x, center2.y)
+
+    radius1 = (rectangle1.get_width()) / 2
+    radius2 = (rectangle1.get_height()) / 2
+
+    for k in range(n):
+
+        if k % 2 == 1:
+
+            line = rg.Line(startpoint, endpoint)
+            line_color1 = rectangle2.outline_color
+            line.thickness = 5
+            line.attach_to(window)
+
+            startpoint.x = startpoint.x - radius1
+            startpoint.y = startpoint.y + radius2
+
+            endpoint.x = endpoint.x - radius1
+            endpoint.y = endpoint.y + radius2
+
+        if k % 2 == 0:
+
+            line = rg.Line(startpoint, endpoint)
+            line_color2 = rectangle1.outline_color
+            line.thickness = 5
+            line.attach_to(window)
+
+            startpoint.x = startpoint.x - radius1
+            startpoint.y = startpoint.y + radius2
+
+            endpoint.x = endpoint.x - radius1
+            endpoint.y = endpoint.y + radius2
+
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+
+    window.render()
+
+
 
 
 # ----------------------------------------------------------------------
