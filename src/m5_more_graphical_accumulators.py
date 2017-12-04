@@ -170,7 +170,7 @@ def run_test_draw_circles_from_rectangle():
     # ------------------------------------------------------------------
     # A third test on ANOTHER window.
     # ------------------------------------------------------------------
-    window2 = rg.RoseWindow(650, 350)
+    window2 = rg.RoseWindow(700, 700)
 
     rectangle1 = rg.Rectangle(rg.Point(270, 500), rg.Point(320, 400))
     rectangle1.fill_color = 'yellow'
@@ -240,15 +240,19 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     fill_color = rectangle.fill_color
 
 
-    radius1 = (rectangle.corner_2.y - rectangle.corner_1.y)/2
-    radius2 = (rectangle.corner_2.x - rectangle.corner_1.x)/2
+    height = rectangle.get_height()
+    width = rectangle.get_width()
 
+    radius1 = height/2
+    radius2 = width/2
 
-    x1 = rectangle.corner_2.x - radius1
-    y1 = rectangle.corner_2.y - radius1
+    center = rectangle.get_center()
 
-    x2 = rectangle.corner_1.x + radius2
-    y2 = rectangle.corner_1.y + radius2
+    x1 = center.x - (radius1 + radius2)
+    y1 = center.y
+
+    x2 = center.x
+    y2 = center.y - (radius2 + radius1)
 
     #Horizontal circles
     for k in range(m):
@@ -275,7 +279,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
 
         circle2.fill_color = None
 
-        y2 = y2 + 2*radius2
+        y2 = y2 - 2*radius2
 
         circle2.attach_to(window)
 
